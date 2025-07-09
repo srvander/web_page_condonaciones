@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario de Automatización</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 1rem;
+        }
+
+        header h1 {
+            color: #0056b3;
+            margin-bottom: 0.5rem;
+        }
+
+        .glossary {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .term-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 2rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .term-card h2 {
+            font-size: 1.25rem;
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #007bff;
+            padding-left: 1rem;
+        }
+
+        .term-card p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>GLOSARIO</h1>
+            <p>A continuación se definen algunos conceptos para perfeccionar el examen de admisibilidad:</p>
+        </header>
+
+        <main class="glossary">
+            <div class="term-card">
+                <h2>1. INFORMACIÓN GENERAL</h2>
+                <p>Corresponden a un conjunto de datos que pueden estar expresamente indicados en la documentación, o bien, es posible deducirla con facilidad a partir de ella (ejemplo: solicitante no declara su condición jurídica en su presentación, pero acompaña una liquidación de pensión que permite deducir que es ex funcionario jubilado. En tal caso, es posible concluir que el dato es válido y tenerlo por cumplido.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>2. ORGANISMO ACREEDOR</h2>
+                <p>Corresponde al organismo público que pagó indebidamente el monto que ahora es cobrado al solicitante. No siempre coincide con el ORGANISMO ACTUAL, pues el servidor puede haber cambiado de empleador en el tiempo intermedio.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>3. ORGANISMO ACTUAL</h2>
+                <p>Organismo público que mantiene actualmente actúa como empleador de solicitante. La actualidad se define a partir de los mismos datos suministrados por el solicitante y el origen de la NOTIFICACIÓN DE LA DEUDA.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>4. ORGANISMO PENSIÓN</h2>
+                <p>Se trata del organismo público que paga la pensión al solicitante, cuando este tiene la calidad de ex funcionario y está jubilado. Precaución: los únicos organismos válidos para esta categoría son CAPREDENA (Caja de Previsión de la Defensa Nacional), DIPRECA (Dirección de Previsión de Carabineros) y el IPS (Instituto de Previsión Social). Si no se menciona a ninguno de esos servicios, eso quiere decir que el funcionario no esta afiliado a esos servicios, por lo que la variable puede ser tenida por N/A.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>5. FACILIDADES DE PAGO</h2>
+                <p>Término que alude a la posibilidad de pagar una deuda en cuotas o parcialidades convenidas. Las facilidades pueden ser solicitadas de manera directa o bien subsidiariamente, cuando se pide la condonación, pero esta es rechazada.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>6. NOTIFICACIÓN DE LA DEUDA</h2>
+                <p>Para estos efectos se trata de un correo electrónico, oficio u otro documento oficial emanado por la autoridad del ORGANISMO ACTUAL u otro funcionario de su dependencia que pertenezca a alguna unidad con competencias de personal y remuneraciones.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>7. PERÍODO DE LA DEUDA</h2>
+                <p>Corresponde al rango de tiempo durante el cual se estuvo verificando el pago de la remuneración improcedente. Cuando se trata de pagos por asignaciones improcedentes, el período es usualmente de meses, correspondientes a aquellos en que el solicitante percibió una remuneración en la que iba incluida la asignación errada. Cuando se trata de licencias médicas, el período usualmente es de días. Los períodos pueden ser continuos o discontinuos, dependiendo si la deuda se origina en un solo concepto o varios (como licencias médicas otorgadas de manera discontinua).</p>
+            </div>
+
+            <div class="term-card">
+                <h2>8. FECHA DE LA NOTIFICACIÓN</h2>
+                <p>Es el día exacto en que la NOTIFICACIÓN DE LA DEUDA fue puesta en conocimiento del funcionario solicitante (no coincide necesariamente con la fecha de emisión de ese acto, que usualmente es estampada al principio. Por el contrario, la fecha de notificación está encontrada usualmente al final de ese documento y escrita de puño y letra del afectado.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>9. LIQUIDACIONES DE REMUNERACIONES</h2>
+                <p>Son un documento especial emanado generalmente por la unidad de recursos humanos, personal o remuneraciones del organismo público al que pertenece o pertenecía el funcionario, en el cual se detalla el monto de dinero que percibirá en una determinada mensualidad por su trabajo. El detalle incluye todos los ingresos que reporta en razón de su trabajo como funcionario, especificados en asignaciones, y también los descuentos que se realizan, como impuestos y cotizaciones de salud. También puede recibir otros nombres semejantes como liquidación consolidado. En definitiva, se trata de un documento que acredita el pago de remuneraciones en un mes determinado.</p>
+            </div>
+
+            <div class="term-card">
+                <h2>10. TRES ÚLTIMAS LIQUIDACIONES DE REMUNERACIONES</h2>
+                <p>Las últimas liquidaciones son aquellas previas a la fecha de ingreso de la solicitud de condonación. Correspondientes a los tres últimos meses desde esa fecha. Regla especial: las liquidaciones son entregadas durante la segunda mitad del mes y no al final de este, por lo que si un funcionario ingresa una presentación el 25 de mayo, sus tres últimas liquidaciones serán las de los meses de mayo, abril y marzo. Por el contrario, si la solicitud fue hecha a principios de julio, el interesado puede acompañar las liqudaciones de junio, mayo y abril.</p>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
