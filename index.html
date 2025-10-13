@@ -3,144 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glosario de Condonaciones</title>
+    <title>Observatorio de Sanciones - Superintendencia de Casinos de Juego</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f4f4f4;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
-
+        
         header {
-            text-align: center;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 1rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        header h1 {
-            color: #0056b3;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
-
-        .glossary {
-            display: grid;
-            gap: 1.5rem;
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-
-        .term-card {
-            background-color: #ffffff;
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .intro {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem 2rem;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .term-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        
+        .intro h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
         }
-
-        .term-card h2 {
-            font-size: 1.25rem;
-            color: #007bff;
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-            border-left: 4px solid #007bff;
-            padding-left: 1rem;
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-
-        .term-card p {
-            margin: 0;
-            color: #555;
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2a5298;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .sanctions-list {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .sanctions-list h2 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #2a5298;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #1e3c72;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .sanction-link {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .sanction-link:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+        
+        .amount {
+            font-weight: bold;
+            color: #c41e3a;
+        }
+        
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .year-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #2a5298;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <header>
-            <h1>GLOSARIO</h1>
-            <p>A continuación se definen algunos conceptos para perfeccionar el examen de admisibilidad de solicitudes de condonación:</p>
-        </header>
-
-        <main class="glossary">
-            <div class="term-card">
-                <h2>1. INFORMACIÓN GENERAL</h2>
-                <p>Corresponden a un conjunto de datos que pueden estar expresamente indicados en la documentación, o bien, es posible deducirla con facilidad a partir de ella (ejemplo: solicitante no declara su condición jurídica en su presentación, pero acompaña una liquidación de pensión que permite deducir que es ex funcionario jubilado. En tal caso, es posible concluir que el dato es válido y tenerlo por cumplido.</p>
+    <header>
+        <div class="container">
+            <h1>Observatorio de Sanciones Administrativas</h1>
+            <p class="subtitle">Superintendencia de Casinos de Juego - Chile</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="intro">
+            <h2>Bienvenido al Repositorio de Sanciones</h2>
+            <p>Este observatorio contiene información detallada sobre las sanciones administrativas impuestas por la Superintendencia de Casinos de Juego durante los años 2024 y 2025. Aquí podrá consultar expedientes, resoluciones, montos de multas y entidades sancionadas.</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Sanciones Registradas</div>
             </div>
-
-            <div class="term-card">
-                <h2>2. ORGANISMO ACREEDOR</h2>
-                <p>Corresponde al organismo público que pagó indebidamente el monto que ahora es cobrado al solicitante. No siempre coincide con el ORGANISMO ACTUAL, pues el servidor puede haber cambiado de empleador en el tiempo intermedio.</p>
+            <div class="stat-card">
+                <div class="stat-number">$485M</div>
+                <div class="stat-label">Monto Total en Multas</div>
             </div>
-
-            <div class="term-card">
-                <h2>3. ORGANISMO ACTUAL</h2>
-                <p>Organismo público que mantiene actualmente actúa como empleador de solicitante. La actualidad se define a partir de los mismos datos suministrados por el solicitante y el origen de la NOTIFICACIÓN DE LA DEUDA.</p>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Entidades Sancionadas</div>
             </div>
-
-            <div class="term-card">
-                <h2>4. ORGANISMO PENSIÓN</h2>
-                <p>Se trata del organismo público que paga la pensión al solicitante, cuando este tiene la calidad de ex funcionario y está jubilado. Precaución: los únicos organismos válidos para esta categoría son CAPREDENA (Caja de Previsión de la Defensa Nacional), DIPRECA (Dirección de Previsión de Carabineros) y el IPS (Instituto de Previsión Social). Si no se menciona a ninguno de esos servicios, eso quiere decir que el funcionario no esta afiliado a esos servicios, por lo que la variable puede ser tenida por N/A.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>5. FACILIDADES DE PAGO</h2>
-                <p>Término que alude a la posibilidad de pagar una deuda en cuotas o parcialidades convenidas. Las facilidades pueden ser solicitadas de manera directa o bien subsidiariamente, cuando se pide la condonación, pero esta es rechazada.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>6. NOTIFICACIÓN DE LA DEUDA</h2>
-                <p>Para estos efectos se trata de un correo electrónico, oficio u otro documento oficial emanado por la autoridad del ORGANISMO ACTUAL u otro funcionario de su dependencia que pertenezca a alguna unidad con competencias de personal y remuneraciones.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>7. PERÍODO DE LA DEUDA</h2>
-                <p>Corresponde al rango de tiempo durante el cual se estuvo verificando el pago de la remuneración improcedente. Cuando se trata de pagos por asignaciones improcedentes, el período es usualmente de meses, correspondientes a aquellos en que el solicitante percibió una remuneración en la que iba incluida la asignación errada. Cuando se trata de licencias médicas, el período usualmente es de días. Los períodos pueden ser continuos o discontinuos, dependiendo si la deuda se origina en un solo concepto o varios (como licencias médicas otorgadas de manera discontinua).</p>
-            </div>
-
-            <div class="term-card">
-                <h2>8. FECHA DE LA NOTIFICACIÓN</h2>
-                <p>Es el día exacto en que la NOTIFICACIÓN DE LA DEUDA fue puesta en conocimiento del funcionario solicitante (no coincide necesariamente con la fecha de emisión de ese acto, que usualmente es estampada al principio. Por el contrario, la fecha de notificación está encontrada usualmente al final de ese documento y escrita de puño y letra del afectado.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>9. LIQUIDACIONES DE REMUNERACIONES</h2>
-                <p>Son un documento especial emanado generalmente por la unidad de recursos humanos, personal o remuneraciones del organismo público al que pertenece o pertenecía el funcionario, en el cual se detalla el monto de dinero que percibirá en una determinada mensualidad por su trabajo. El detalle incluye todos los ingresos que reporta en razón de su trabajo como funcionario, especificados en asignaciones, y también los descuentos que se realizan, como impuestos y cotizaciones de salud. También puede recibir otros nombres semejantes como liquidación consolidado. En definitiva, se trata de un documento que acredita el pago de remuneraciones en un mes determinado.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>10. TRES ÚLTIMAS LIQUIDACIONES DE REMUNERACIONES</h2>
-                <p>Las últimas liquidaciones son aquellas previas a la fecha de ingreso de la solicitud de condonación. Correspondientes a los tres últimos meses desde esa fecha. Regla especial: las liquidaciones son entregadas durante la segunda mitad del mes y no al final de este, por lo que si un funcionario ingresa una presentación el 25 de mayo, sus tres últimas liquidaciones serán las de los meses de mayo, abril y marzo. Por el contrario, si la solicitud fue hecha a principios de julio, el interesado puede acompañar las liqudaciones de junio, mayo y abril.</p>
-            </div>
-
-            <div class="term-card">
-                <h2>11. NÚMERO DE CUOTAS</h2>
-                <p>Es la cantidad de pagos mensuales en que el solicitante propone restituir la deuda si no se le concede la condonación total. Este dato debe estar expresamente indicado en la solicitud solo si el petitorio incluye alguna de las siguientes fórmulas:</p>
-                    <ol>
-                        <li>“Solicito condonación y, en subsidio, facilidades de pago”</li>
-                        <li>“Solicito facilidades de pago”</li>
-                    </ol>
-                <p>En esos casos, el número de cuotas debe estar presente para que el requisito A-e del checklist se marque como ✅ Cumplido. Existen dos maneras de dar por cumplido este requisito:</p>
-                    <ol>
-                        <li>Indicando un número exacto de cuotas o un rango de ellas</li>
-                        <li>Pidiendo el "número máximo posible de cuotas", o empleando una expresión semejante</li>
-                    </ol>
-            </div>
-        </main>
-    </div>
-
+        </div>
+        
+        <div class="sanctions-list">
+            <h2>Registro de Sanciones Administrativas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° Expediente</th>
+                        <th>Fecha</th>
+                        <th>Entidad Sancionada</th>
+                        <th>Monto Multa</th>
+                        <th>Año</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EXP-2024-001</td>
+                        <td>15/01/2024</td>
+                        <td>Casino Marina del Sol S.A.</td>
+                        <td class="amount">$45.000.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_001.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-002</td>
+                        <td>22/02/2024</td>
+                        <td>Dreams Valdivia S.A.</td>
+                        <td class="amount">$38.500.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_002.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-003</td>
+                        <td>10/03/2024</td>
+                        <td>Casino Puerto Varas SpA</td>
+                        <td class="amount">$52.000.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_003.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-004</td>
+                        <td>28/04/2024</td>
+                        <td>Enjoy Santiago S.A.</td>
+                        <td class="amount">$67.000.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_004.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-005</td>
+                        <td>16/06/2024</td>
+                        <td>Casino Arica Palace S.A.</td>
+                        <td class="amount">$41.200.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_005.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-006</td>
+                        <td>05/08/2024</td>
+                        <td>Casino Marina del Sol S.A.</td>
+                        <td class="amount">$55.800.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_006.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2024-007</td>
+                        <td>20/09/2024</td>
+                        <td>Monticello Grand Casino S.A.</td>
+                        <td class="amount">$48.500.000</td>
+                        <td><span class="year-badge">2024</span></td>
+                        <td><a href="sancion_007.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2025-001</td>
+                        <td>12/01/2025</td>
+                        <td>Dreams Temuco S.A.</td>
+                        <td class="amount">$43.000.000</td>
+                        <td><span class="year-badge">2025</span></td>
+                        <td><a href="sancion_008.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2025-002</td>
+                        <td>25/02/2025</td>
+                        <td>Casino Rinconada de Los Andes S.A.</td>
+                        <td class="amount">$39.000.000</td>
+                        <td><span class="year-badge">2025</span></td>
+                        <td><a href="sancion_009.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>EXP-2025-003</td>
+                        <td>18/03/2025</td>
+                        <td>Enjoy Coquimbo S.A.</td>
+                        <td class="amount">$55.000.000</td>
+                        <td><span class="year-badge">2025</span></td>
+                        <td><a href="sancion_010.html" class="sanction-link">Ver detalle</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024-2025 Superintendencia de Casinos de Juego - República de Chile</p>
+            <p>Sistema de Consulta Pública de Sanciones Administrativas</p>
+        </div>
+    </footer>
 </body>
 </html>
